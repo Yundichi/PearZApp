@@ -1,71 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Growth Profile</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Growth Report</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>My Growth Journey</h1>
-        <nav>
-            <a href="index.html">Home</a> |
-            <a href="tasks.html">Tasks</a> |
-            <a href="growth.html">Growth</a>
-        </nav>
-    </header>
+  <header>
+    <h1>My Growth Journey</h1>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="task.html">Tasks</a> |
+      <a href="growth.html">Growth</a>
+    </nav>
+  </header>
 
-    <main>
+  <main>
+    <section id="summary">
+      <h2>Weekly Positive Emotion Points: <span id="positivePoints">0</span></h2>
+      <h2>Task Completion Rate: <span id="taskRate">0%</span></h2>
+    </section>
 
-<section id="growth-points">
-  <h2>Weekly Growth Points: <span id="points">0</span></h2>
-</section>
+    <section id="radar">
+      <h2>Character Strengths</h2>
+      <canvas id="radarChart" width="400" height="400"></canvas>
+    </section>
 
-        <section id="positive-growth-points">
-  <h2>Weekly Positive Emotion This Week: <span id="positivePoints">0</span></h2>
-</section>        
-        
-        <section id="growth-summary">
-            <h2>Weekly Growth Summary</h2>
-            <p id="summary-text">Loading your progress...</p>
-        </section>
+    <section id="emotions">
+      <h2>Emotion Frequency</h2>
+      <canvas id="emotionChart" width="400" height="300"></canvas>
+    </section>
 
-        <section id="reflection-history">
+    <section id="reflections">
+      <h2>Reflection History</h2>
+      <ul id="reflectionList"></ul>
+    </section>
+  </main>
 
-<section id="add-reflection">
-  <h2>Add New Reflection</h2>
-  <textarea id="new-reflection" rows="4" cols="50" placeholder="Write your reflection here..."></textarea><br>
-  <button onclick="addReflection()">Submit</button>
-</section>
-            
-            <h2>Reflection History</h2>
-            <ul id="reflection-list">
-                <!-- Reflections will be inserted here -->
-            </ul>
-        </section>
-   
-    <section id="ai-feedback">
-  <h2>InnerAI Encouragement</h2>
-  <p id="feedback">Let’s see how you’re growing...</p>
-</section>
-    
-<section id="growth-chart">
-  <h2>Reflection Trend</h2>
-  <canvas id="chart" width="600" height="300"></canvas>
-</section>
-
-    <section id="emotion-chart">
-  <h2>Emotion Frequency</h2>
-  <canvas id="emotionChart" width="600" height="300"></canvas>
-</section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 PearZ </p>
-    </footer>
-
-
-<script src="growth.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="growth.js"></script>
 </body>
 </html>
