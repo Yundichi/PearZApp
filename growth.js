@@ -138,6 +138,10 @@ const chart = new Chart(ctx, {
                 precision: 0
             }
         }
+   <section id="emotion-chart">
+  <h2>Emotion Frequency</h2>
+  <canvas id="emotionChart" width="600" height="300"></canvas>
+</section>
     }
 });
 const emotionData = JSON.parse(localStorage.getItem("emotionData")) || [];
