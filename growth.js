@@ -35,7 +35,25 @@ document.getElementById("points").textContent = points;
         li.textContent = entry;
         list.appendChild(li);
     });
+
+// InnerAI 鼓励提示逻辑
+if (reflections.length >= 3) {
+    let feedback = "";
+
+    if (reflections.length >= 10) {
+        feedback = "You're truly building a mindful habit. Incredible progress!";
+    } else if (reflections.length >= 6) {
+        feedback = "Your reflections are becoming deeper. Keep going!";
+    } else {
+        feedback = "You’ve shown great consistency. Keep it up!";
+    }
+
+    document.getElementById("feedback").textContent = feedback;
+}
 });
+
+
+
 function addReflection() {
     const newText = document.getElementById("new-reflection").value.trim();
     if (newText === "") {
