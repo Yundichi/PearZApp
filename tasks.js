@@ -45,4 +45,46 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
+
+  // ==== Task Interactions ====
+
+  // 初始化任务列表
+  const taskList = document.getElementById('task-list');
+  const tasks = JSON.parse(localStorage.getItem('completedTasks')) || [];
+
+  function renderTasks() {
+    taskList.innerHTML = '';
+    tasks.forEach(task => {
+      const li = document.createElement('li');
+      li.textContent = task;
+      taskList.appendChild(li);
+    });
+  }
+
+  renderTasks();  // 初次加载渲染
+
+  // 添加新任务
+  window.addTask = function () {
+    const input = document.getElementById('task-input');
+    const newTask = input.value.trim();
+    if (newTask === '') {
+      alert('Please enter a task!');
+      return;
+    }
+    tasks.unshift(newTask);
+    localStorage.setItem('completedTasks', JSON.stringify(tasks));
+    input.value = '';
+    renderTasks();
+  };
+
+const taskItems = document.querySelectorAll('#task-list li');
+taskItems.forEach(item => {
+  item.addEventListener('click', () => {
+    const emotionData = JSON.parse(localStorage.getItem('emotionData')) || [];
+    emotionData.push("joy");
+    localStorage.setItem('emotionData', JSON.stringify(emotionData));
+    alert("Great job! You've earned a joy point!");
+  });
+});
+
 });
