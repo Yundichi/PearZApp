@@ -1,3 +1,4 @@
+// ====== Emotion Detection Function ======
 function detectEmotion(text) {
     const emotions = {
         joy: ["happy", "joy", "excited", "grateful"],
@@ -16,6 +17,7 @@ function detectEmotion(text) {
     return "neutral";
 }
 
+// ====== Get Current Week Number ======
 function getCurrentWeekNumber() {
     const now = new Date();
     const oneJan = new Date(now.getFullYear(), 0, 1);
@@ -23,18 +25,26 @@ function getCurrentWeekNumber() {
     return Math.ceil(dayOfYear / 7);
 }
 
+// ====== On Load Operations ======
 document.addEventListener("DOMContentLoaded", function () {
     const summary = localStorage.getItem("growthSummary") || "You completed 3 tasks this week and submitted 2 reflections.";
-    const reflections = JSON.parse(localStorage.getItem("reflections")) || [];
+    const reflections = JSON.parse(localStorage.getItem("reflections")) || [
+        "I learned to be more mindful during the group task.",
+        "Today I handled stress better than before."
+    ];
+
+    // Weekly summary
     document.getElementById("summary-text").textContent = summary;
 
+    // Render reflection history
     const list = document.getElementById("reflection-list");
-    reflections.forEach(entry => {
+    reflections.forEach((entry) => {
         const li = document.createElement("li");
         li.textContent = entry;
         list.appendChild(li);
     });
 
+    // Clear growth points if new week
     const currentWeek = getCurrentWeekNumber();
     const lastWeek = parseInt(localStorage.getItem("lastUpdatedWeek")) || 0;
     if (currentWeek !== lastWeek) {
@@ -45,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const points = parseInt(localStorage.getItem("growthPoints")) || 0;
     document.getElementById("points").textContent = points;
 
+    // InnerAI Encouragement
     if (reflections.length >= 3) {
         let feedback = "";
         if (reflections.length >= 10) {
@@ -57,10 +68,49 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("feedback").textContent = feedback;
     }
 
+    // Render Reflection Trend Line Chart
+    const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+    const dayCounts = [0, 0, 0, 0, 0, 0, 0];
+    const today = new Date();
+    for (let i = 0; i < reflections.length; i++) {
+        const dayIndex = i % 7;
+        dayCounts[dayIndex]++;
+    }
+
+    const ctx = document.getElementById("chart").getContext("2d");
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: days,
+            datasets: [{
+                label: 'Reflections This Week',
+                data: dayCounts,
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.2
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    precision: 0
+                }
+            }
+        }
+    });
+
+    // Render Emotion Frequency Bar Chart
     const emotionData = JSON.parse(localStorage.getItem("emotionData")) || [];
-    const emotionCounts = { joy: 0, stress: 0, calm: 0, sadness: 0, neutral: 0 };
+    const emotionCounts = {
+        joy: 0, stress: 0, calm: 0, sadness: 0, neutral: 0
+    };
+
     emotionData.forEach(e => {
-        if (emotionCounts[e] !== undefined) emotionCounts[e]++;
+        if (emotionCounts[e] !== undefined) {
+            emotionCounts[e]++;
+        }
     });
 
     const emotionCtx = document.getElementById("emotionChart").getContext("2d");
@@ -82,11 +132,16 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         options: {
             responsive: true,
-            scales: { y: { beginAtZero: true } }
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
         }
     });
 });
 
+// ====== Add Reflection and Emotion ======
 function addReflection() {
     const newText = document.getElementById("new-reflection").value.trim();
     if (newText === "") {
@@ -103,17 +158,21 @@ function addReflection() {
     reflections.unshift(newText);
     localStorage.setItem("reflections", JSON.stringify(reflections));
 
+    // Clear input
     document.getElementById("new-reflection").value = "";
 
+    // Update points
     let points = parseInt(localStorage.getItem("growthPoints")) || 0;
     points += 1;
     localStorage.setItem("growthPoints", points);
     document.getElementById("points").textContent = points;
 
+    // Insert to page immediately
     const list = document.getElementById("reflection-list");
     const li = document.createElement("li");
     li.textContent = newText;
     list.insertBefore(li, list.firstChild);
 }
 
+// Bind to global scope
 window.addReflection = addReflection;
