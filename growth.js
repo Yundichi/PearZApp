@@ -1,40 +1,50 @@
-{
-  "reflections": [
-    {
-      "text": "I learned to manage my stress through deep breathing.",
-      "emotion": "calm",
-      "date": "2025-05-15"
-    },
-    {
-      "text": "Finished my math homework and felt accomplished.",
-      "emotion": "joy",
-      "date": "2025-05-14"
-    },
-    {
-      "text": "Argued with a friend but resolved it peacefully.",
-      "emotion": "gratitude",
-      "date": "2025-05-13"
-    }
-  ],
-  "emotionFrequency": {
-    "joy": 1,
-    "calm": 1,
-    "gratitude": 1,
-    "anger": 0,
-    "sadness": 0
-  },
-  "positiveEmotionPoints": 2,
-  "taskCompletion": {
-    "completed": 5,
-    "total": 10
-  },
-  "characterStrengthRadar": {
-    "Curiosity": 6,
-    "Creativity": 5,
-    "Zest": 4,
-    "Perspective": 7,
-    "Kindness": 6,
-    "Leadership": 4,
-    "Love of Learning": 5
-  }
-}
+document.addEventListener('DOMContentLoaded', () => {
+  fetch('growth.json')
+    .then(res => res.json())
+    .then(data => {
+      // Positive Points
+      document.getElementById('positivePoints').textContent = data.positiveEmotionPoints;
+
+      // Task Completion Rate
+      const rate = Math.round(100 * data.taskCompletion.completed / data.taskCompletion.total);
+      document.getElementById('taskRate').textContent = rate + '%';
+
+      // Reflections
+      const list = document.getElementById('reflectionList');
+      data.reflections.forEach(r => {
+        const li = document.createElement('li');
+        li.textContent = `[${r.date}] (${r.emotion}) ${r.text}`;
+        list.appendChild(li);
+      });
+
+      // Radar Chart
+      const radarCtx = document.getElementById('radarChart').getContext('2d');
+      new Chart(radarCtx, {
+        type: 'radar',
+        data: {
+          labels: Object.keys(data.characterStrengthRadar),
+          datasets: [{
+            label: 'Character Strengths',
+            data: Object.values(data.characterStrengthRadar),
+            fill: true,
+            backgroundColor: 'rgba(75,192,192,0.2)',
+            borderColor: 'rgba(75,192,192,1)'
+          }]
+        }
+      });
+
+      // Emotion Frequency Chart
+      const emotionCtx = document.getElementById('emotionChart').getContext('2d');
+      new Chart(emotionCtx, {
+        type: 'bar',
+        data: {
+          labels: Object.keys(data.emotionFrequency),
+          datasets: [{
+            label: 'Emotion Frequency',
+            data: Object.values(data.emotionFrequency),
+            backgroundColor: 'rgba(153,102,255,0.5)'
+          }]
+        }
+      });
+    });
+});
