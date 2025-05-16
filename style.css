@@ -1,97 +1,71 @@
-/* 通用设置 */
+/* 全局样式 */
 body {
-  font-family: "Arial", sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f8f9fa;
-  color: #333;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f6f6f6;
+  color: #333;
 }
 
-/* 页眉样式 */
-header {
-  background-color: #007BFF;
-  color: white;
-  padding: 20px 0;
-  text-align: center;
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  min-height: 100vh;
 }
 
-/* 导航栏样式 */
+/* Logo 样式 */
+.logo {
+  width: 120px;
+  display: block;
+  margin: 20px auto 10px;
+}
+
+/* 标题样式 */
+h1 {
+  text-align: center;
+  color: #2c3e50;
+}
+
+/* 导航样式 */
 nav {
-  margin-top: 10px;
+  text-align: center;
+  margin-bottom: 20px;
 }
+
 nav a {
-  color: #ffffff;
-  margin: 0 15px;
-  text-decoration: none;
-  font-weight: bold;
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: bold;
+  margin: 0 10px;
 }
+
 nav a:hover {
-  text-decoration: underline;
+  color: #27ae60;
 }
 
-/* 主体内容 */
+/* 主体段落样式 */
 main {
-  padding: 40px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
-/* 按钮样式 */
-.cta-button {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 24px;
-  background-color: #28a745;
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 6px;
-}
-.cta-button:hover {
-  background-color: #218838;
+a {
+  color: #2c3e50;
 }
 
-/* 表单输入区域样式 */
-textarea, input[type="text"] {
-  width: 80%;
-  padding: 10px;
-  margin: 12px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+a:hover {
+  color: #27ae60;
 }
 
-/* 提交按钮 */
-button, input[type="submit"] {
-  background-color: #007BFF;
-  color: white;
-  padding: 10px 18px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-button:hover, input[type="submit"]:hover {
-  background-color: #0056b3;
-}
-
-/* 图表容器 */
-canvas {
-  display: block;
-  margin: 30px auto;
-  max-width: 600px;
-}
-
-/* 小提示信息 */
-.message {
-  font-size: 1rem;
-  color: #666;
-  text-align: center;
-  margin-top: 30px;
-}
-
-/* 历史记录列表 */
-ul {
-  list-style-type: disc;
-  padding-left: 40px;
-}
-ul li {
-  margin-bottom: 10px;
-  font-size: 1rem;
+/* 页脚样式 */
+footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 14px;
+  color: #999;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
 }
