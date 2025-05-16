@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Goal Activation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <h1>PeerZApp | Goal Activation</h1>
+        <a href="index.html">Back to Home</a>
+    </nav>
+
+    <section class="goal-section">
+        <h2>What's your goal this week?</h2>
+        <input type="text" id="goalInput" placeholder="Enter your goal (e.g. Improve my math score)">
+        <button onclick="addGoal()">Submit Goal</button>
+    </section>
+
+    <section class="avatar-section">
+        <h3>Your Personal Guide:</h3>
+        <div id="avatar">
+            <img src="https://cdn-icons-png.flaticon.com/512/4712/4712107.png" alt="Avatar" width="80">
+            <p id="avatarMessage">Hi! I’m your coach. Let’s build your future together!</p>
+        </div>
+    </section>
+
+    <section class="goal-history">
+        <h3>Goal Tracker</h3>
+        <ul id="goalList"></ul>
+    </section>
+
+    <script src="goal.js"></script>
+</body>
+</html>
