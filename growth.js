@@ -91,6 +91,8 @@ localStorage.setItem("emotionData", JSON.stringify(emotionData));
     // 清空输入框
     document.getElementById("new-reflection").value = "";
 
+  window.addReflection = addReflection;
+  
 // 增加积分
 let points = parseInt(localStorage.getItem("growthPoints")) || 0;
 points += 1;
