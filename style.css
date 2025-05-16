@@ -1,103 +1,97 @@
+/* 通用设置 */
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f8f9fa;
-  color: #333;
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #333;
 }
 
+/* 页眉样式 */
 header {
-  background-color: #4e73df;
-  color: white;
-  padding: 16px 24px;
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
+  background-color: #007BFF;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
 }
 
+/* 导航栏样式 */
+nav {
+  margin-top: 10px;
+}
+nav a {
+  color: #ffffff;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* 主体内容 */
 main {
-  padding: 20px;
-  max-width: 800px;
-  margin: auto;
+  padding: 40px;
 }
 
-h1, h2, h3 {
-  color: #4e73df;
-  margin-top: 24px;
+/* 按钮样式 */
+.cta-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #28a745;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+}
+.cta-button:hover {
+  background-color: #218838;
 }
 
-form {
-  margin-top: 20px;
-  background-color: white;
-  padding: 16px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+/* 表单输入区域样式 */
+textarea, input[type="text"] {
+  width: 80%;
+  padding: 10px;
+  margin: 12px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
+/* 提交按钮 */
+button, input[type="submit"] {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover, input[type="submit"]:hover {
+  background-color: #0056b3;
 }
 
-input[type="text"],
-textarea,
-select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  margin-bottom: 16px;
-  font-size: 14px;
-  box-sizing: border-box;
+/* 图表容器 */
+canvas {
+  display: block;
+  margin: 30px auto;
+  max-width: 600px;
 }
 
-textarea {
-  resize: vertical;
-  min-height: 80px;
+/* 小提示信息 */
+.message {
+  font-size: 1rem;
+  color: #666;
+  text-align: center;
+  margin-top: 30px;
 }
 
-button {
-  padding: 10px 20px;
-  background-color: #1cc88a;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.2s;
+/* 历史记录列表 */
+ul {
+  list-style-type: disc;
+  padding-left: 40px;
 }
-
-button:hover {
-  background-color: #17a673;
-}
-
-.goal-list {
-  margin-top: 24px;
-}
-
-.goal-item {
-  background-color: #ffffff;
-  border-left: 4px solid #4e73df;
-  padding: 12px 16px;
-  margin-bottom: 12px;
-  border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
-.avatar-message {
-  font-style: italic;
-  color: #666;
-  margin-top: 8px;
-  background-color: #f1f1f1;
-  padding: 10px;
-  border-left: 4px solid #1cc88a;
-  border-radius: 6px;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
-  color: #aaa;
+ul li {
+  margin-bottom: 10px;
+  font-size: 1rem;
 }
