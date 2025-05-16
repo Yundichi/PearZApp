@@ -1,0 +1,37 @@
+{
+  "positiveEmotionPoints": 4,
+  "taskCompletion": {
+    "completed": 2,
+    "total": 5
+  },
+  "reflections": [
+    {
+      "date": "2025-05-15",
+      "emotion": "joy",
+      "text": "I completed my MBSP task today!"
+    },
+    {
+      "date": "2025-05-16",
+      "emotion": "calm",
+      "text": "I meditated for 10 minutes and felt peaceful."
+    },
+    {
+      "date": "2025-05-17",
+      "emotion": "frustration",
+      "text": "I struggled to focus today, but I tried to stay patient."
+    }
+  ],
+  "characterStrengths": {
+    "Curiosity": 3,
+    "Kindness": 4,
+    "Courage": 2,
+    "Self-regulation": 3,
+    "Perseverance": 2
+  },
+  "emotionFrequency": {
+    "joy": 2,
+    "calm": 1,
+    "frustration": 1,
+    "sad": 1
+  }
+}
