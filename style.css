@@ -1,71 +1,67 @@
-/* 全局样式 */
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f6f6f6;
+  text-align: center;
+  margin: 40px;
+  background-color: #f5f5f5;
   color: #333;
 }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #ffffff;
-  min-height: 100vh;
-}
-
-/* Logo 样式 */
-.logo {
-  width: 120px;
-  display: block;
-  margin: 20px auto 10px;
-}
-
-/* 标题样式 */
 h1 {
-  text-align: center;
-  color: #2c3e50;
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #222;
 }
 
-/* 导航样式 */
 nav {
-  text-align: center;
   margin-bottom: 20px;
 }
 
 nav a {
-  text-decoration: none;
-  color: #2c3e50;
-  font-weight: bold;
   margin: 0 10px;
+  text-decoration: none;
+  color: #2b4de3;
+  font-weight: bold;
 }
 
-nav a:hover {
-  color: #27ae60;
-}
-
-/* 主体段落样式 */
-main {
-  text-align: center;
+textarea {
+  width: 60%;
+  height: 120px;
   font-size: 16px;
-  line-height: 1.6;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  resize: vertical;
 }
 
-a {
-  color: #2c3e50;
+select {
+  font-size: 16px;
+  padding: 5px;
+  margin-top: 10px;
 }
 
-a:hover {
-  color: #27ae60;
+button {
+  font-size: 16px;
+  padding: 8px 16px;
+  margin-top: 15px;
+  background-color: #2b4de3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-/* 页脚样式 */
+button:hover {
+  background-color: #1f39b5;
+}
+
+img.logo {
+  width: 100px;
+  margin-bottom: 15px;
+}
+
 footer {
   margin-top: 40px;
-  text-align: center;
   font-size: 14px;
-  color: #999;
-  border-top: 1px solid #ddd;
-  padding-top: 10px;
+  color: #777;
 }
