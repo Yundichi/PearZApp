@@ -44,7 +44,35 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
     }
+ 
+  // === 点击任务后记录 joy 情绪 ===
+const taskItems = document.querySelectorAll("#task-list li");
+taskItems.forEach(item => {
+  item.addEventListener("click", () => {
+    // 读取现有情绪数据
+    let emotionData = JSON.parse(localStorage.getItem("emotionData")) || [];
+    // 添加 joy
+    emotionData.push("joy");
+    // 存入本地
+    localStorage.setItem("emotionData", JSON.stringify(emotionData));
+
+    // 可选：反馈提示
+    alert("Great! Your joy has been recorded.");
   });
+});  
+// === 点击任务后记录 Joy 到 emotionData ===
+const taskItems = document.querySelectorAll("#task-list li");
+
+taskItems.forEach(item => {
+  item.addEventListener("click", () => {
+    let emotionData = JSON.parse(localStorage.getItem("emotionData")) || [];
+    emotionData.push("joy");
+    localStorage.setItem("emotionData", JSON.stringify(emotionData));
+    console.log("记录情绪成功: joy");
+    alter("Great! Your joy has been recorded.");
+  });
+});
+});
 
   // ==== Task Interactions ====
 
