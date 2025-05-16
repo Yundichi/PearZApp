@@ -1,11 +1,29 @@
+function getCurrentWeekNumber() {
+    const now = new Date();
+    const oneJan = new Date(now.getFullYear(), 0, 1);
+    const dayOfYear = ((now - oneJan + 86400000) / 86400000);
+    return Math.ceil(dayOfYear / 7);
+}
 
 document.addEventListener("DOMContentLoaded", function() {
+
+    
     const summary = localStorage.getItem("growthSummary") || "You completed 3 tasks this week and submitted 2 reflections.";
     const reflections = JSON.parse(localStorage.getItem("reflections")) || [
         "I learned to be more mindful during the group task.",
         "Today I handled stress better than before."
     ];
-const points = parseInt(localStorage.getItem("growthPoints")) || 0;
+
+    // 每周一自动清零积分
+const currentWeek = getCurrentWeekNumber();
+const lastWeek = parseInt(localStorage.getItem("lastUpdatedWeek")) || 0;
+
+if (currentWeek !== lastWeek) {
+    localStorage.setItem("growthPoints", 0);
+    localStorage.setItem("lastUpdatedWeek", currentWeek);
+}    
+    
+    const points = parseInt(localStorage.getItem("growthPoints")) || 0;
 document.getElementById("points").textContent = points;
     
     
