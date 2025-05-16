@@ -2,14 +2,14 @@ document.addEventListener('DOMContentLoaded', () => {
   fetch('growth.json')
     .then(res => res.json())
     .then(data => {
-      // Update positive points
+      // 显示正向情绪积分
       document.getElementById('positivePoints').textContent = data.positiveEmotionPoints;
 
-      // Task completion
+      // 显示任务完成率
       const rate = Math.round(100 * data.taskCompletion.completed / data.taskCompletion.total);
       document.getElementById('taskRate').textContent = rate + '%';
 
-      // Reflections
+      // 显示反思记录
       const list = document.getElementById('reflectionList');
       data.reflections.forEach(r => {
         const li = document.createElement('li');
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         list.appendChild(li);
       });
 
-      // Radar Chart
+      // 雷达图：Character Strengths
       const radarCtx = document.getElementById('radarChart').getContext('2d');
       new Chart(radarCtx, {
         type: 'radar',
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // Emotion Frequency Chart
+      // 柱状图：Emotion Frequency
       const emotionCtx = document.getElementById('emotionChart').getContext('2d');
       new Chart(emotionCtx, {
         type: 'bar',
