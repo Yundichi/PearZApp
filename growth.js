@@ -9,6 +9,7 @@ function detectEmotion(text) {
     for (const [emotion, keywords] of Object.entries(emotions)) {
         for (const word of keywords) {
             if (text.toLowerCase().includes(word)) {
+                console.log("Detected emotion:", emotion);
                 return emotion;
             }
         }
@@ -26,11 +27,11 @@ function getCurrentWeekNumber() {
 
 // ===== On Load Operations =====
 document.addEventListener("DOMContentLoaded", function () {
-    const summary = localStorage.getItem("growthSummary") || "You completed 0 reflections.";
+    const summary = localStorage.getItem("growthSummary") || "You completed 0 reflections this week.";
     const reflections = JSON.parse(localStorage.getItem("reflections")) || [];
+
     document.getElementById("summary-text").textContent = summary;
 
-    // Weekly summary
     const list = document.getElementById("reflection-list");
     reflections.forEach((entry) => {
         const li = document.createElement("li");
@@ -38,48 +39,50 @@ document.addEventListener("DOMContentLoaded", function () {
         list.appendChild(li);
     });
 
-    // Clear growth points if new week
     const currentWeek = getCurrentWeekNumber();
     const lastWeek = parseInt(localStorage.getItem("lastUpdatedWeek")) || 0;
     if (currentWeek !== lastWeek) {
+        console.log("New week detected. Resetting points.");
         localStorage.setItem("growthPoints", 0);
         localStorage.setItem("positiveEmotionPoints", 0);
         localStorage.setItem("lastUpdatedWeek", currentWeek);
     }
 
-    // Update growth points
     const points = parseInt(localStorage.getItem("growthPoints")) || 0;
     document.getElementById("points").textContent = points;
 
-    // Update positive points
     const positivePoints = parseInt(localStorage.getItem("positiveEmotionPoints")) || 0;
     document.getElementById("positivePoints").textContent = positivePoints;
 
-    // InnerAI Encouragement
-    let feedback = "";
-    if (reflections.length >= 10) {
-        feedback = "You're truly building a mindful habit. Incredible progress!";
-    } else if (reflections.length >= 6) {
-        feedback = "Your reflections are becoming deeper. Keep going!";
-    } else if (reflections.length >= 3) {
-        feedback = "Nice start! Stay mindful each day.";
+    // AI Encouragement
+    if (reflections.length >= 3) {
+        let feedback = "";
+        if (reflections.length >= 10) {
+            feedback = "You're truly building a mindful habit. Incredible progress!";
+        } else if (reflections.length >= 6) {
+            feedback = "Your reflections are becoming deeper. Keep going!";
+        } else {
+            feedback = "You're off to a strong start. Keep reflecting!";
+        }
+        document.getElementById("feedback").textContent = feedback;
     }
-    document.getElementById("feedback").textContent = feedback;
 
-    // Reflection Trend Chart
+    // Weekly Line Chart
     const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
     const dayCounts = [0, 0, 0, 0, 0, 0, 0];
+    const today = new Date();
     for (let i = 0; i < reflections.length; i++) {
         const dayIndex = i % 7;
         dayCounts[dayIndex]++;
     }
+
     const ctx = document.getElementById("chart").getContext("2d");
     new Chart(ctx, {
         type: 'line',
         data: {
             labels: days,
             datasets: [{
-                label: "Reflections This Week",
+                label: 'Reflections This Week',
                 data: dayCounts,
                 fill: false,
                 borderColor: 'rgb(75, 192, 192)',
@@ -88,21 +91,32 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         options: {
             responsive: true,
-            scales: { y: { beginAtZero: true, precision: 0 } }
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    precision: 0
+                }
+            }
         }
     });
 
-    // Emotion Frequency Bar Chart
+    // Emotion Frequency Chart
     const emotionData = JSON.parse(localStorage.getItem("emotionData")) || [];
     const emotionCounts = { joy: 0, stress: 0, calm: 0, sadness: 0, neutral: 0 };
-    emotionData.forEach(e => { if (emotionCounts[e] !== undefined) emotionCounts[e]++; });
+    emotionData.forEach(e => {
+        if (emotionCounts[e] !== undefined) {
+            emotionCounts[e]++;
+        }
+    });
+    console.log("Emotion count summary:", emotionCounts);
+
     const emotionCtx = document.getElementById("emotionChart").getContext("2d");
     new Chart(emotionCtx, {
         type: 'bar',
         data: {
             labels: Object.keys(emotionCounts),
             datasets: [{
-                label: "Emotion Frequency",
+                label: 'Emotion Frequency',
                 data: Object.values(emotionCounts),
                 backgroundColor: [
                     'rgba(255, 206, 86, 0.6)',
@@ -115,7 +129,11 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         options: {
             responsive: true,
-            scales: { y: { beginAtZero: true, precision: 0 } }
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
         }
     });
 });
@@ -129,37 +147,37 @@ function addReflection() {
     }
 
     const emotion = detectEmotion(newText);
-    const positiveEmotions = ["joy", "calm"];
-
     let emotionData = JSON.parse(localStorage.getItem("emotionData")) || [];
     emotionData.push(emotion);
     localStorage.setItem("emotionData", JSON.stringify(emotionData));
+    console.log("Saved emotion data:", emotionData);
 
+    const positiveEmotions = ["joy", "calm"];
     if (positiveEmotions.includes(emotion)) {
         let positivePoints = parseInt(localStorage.getItem("positiveEmotionPoints")) || 0;
         positivePoints += 1;
         localStorage.setItem("positiveEmotionPoints", positivePoints);
         document.getElementById("positivePoints").textContent = positivePoints;
+        console.log("Updated positivePoints:", positivePoints);
     }
 
     let reflections = JSON.parse(localStorage.getItem("reflections")) || [];
     reflections.unshift(newText);
     localStorage.setItem("reflections", JSON.stringify(reflections));
 
-    // Clear input
     document.getElementById("new-reflection").value = "";
 
-    // Update growth points
     let points = parseInt(localStorage.getItem("growthPoints")) || 0;
     points += 1;
     localStorage.setItem("growthPoints", points);
     document.getElementById("points").textContent = points;
 
-    // Insert to page immediately
     const list = document.getElementById("reflection-list");
     const li = document.createElement("li");
     li.textContent = newText;
     list.insertBefore(li, list.firstChild);
+
+    console.log("Reflection added. Total reflections:", reflections.length);
 }
 
 window.addReflection = addReflection;
