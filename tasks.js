@@ -80,16 +80,25 @@ taskItems.forEach(item => {
   const taskList = document.getElementById('task-list');
   const tasks = JSON.parse(localStorage.getItem('completedTasks')) || [];
 
-  function renderTasks() {
-    taskList.innerHTML = '';
-    tasks.forEach(task => {
-      const li = document.createElement('li');
-      li.textContent = task;
-      taskList.appendChild(li);
-    });
-  }
+ function renderTasks() {
+  taskList.innerHTML = '';
+  tasks.forEach(task => {
+    const li = document.createElement('li');
+    li.textContent = task;
 
-  renderTasks();  // 初次加载渲染
+    // 添加点击事件：记录 joy 情绪
+    li.addEventListener('click', () => {
+      let emotionData = JSON.parse(localStorage.getItem("emotionData")) || [];
+      emotionData.push("joy");
+      localStorage.setItem("emotionData", JSON.stringify(emotionData));
+      alert("Great job! You've earned a joy point!");
+    });
+
+    taskList.appendChild(li);
+  });
+}
+
+renderTasks(); // 初次加载渲染
 
   // 添加新任务
   window.addTask = function () {
