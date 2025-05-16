@@ -1,38 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8" />
-  <title>Task Page</title>
+  <title>Task Reflection</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>Task Reflection</h1>
-    <nav>
-      <a href="index.html">Home</a> |
-      <a href="task.html">Tasks</a> |
-      <a href="growth.html">Growth</a>
-    </nav>
-  </header>
+  <h1>Task Reflection</h1>
+  <nav>
+    <a href="index.html">Home</a> |
+    <a href="task.html">Tasks</a> |
+    <a href="growth.html">Growth</a>
+  </nav>
 
-  <main>
-    <section>
-      <h2>New Reflection</h2>
-      <textarea id="reflectionText" placeholder="Write your reflection here..."></textarea><br />
-      <select id="emotionSelect">
-        <option value="">Select an emotion</option>
-        <option value="joy">Joy</option>
-        <option value="calm">Calm</option>
-        <option value="sad">Sad</option>
-        <option value="angry">Angry</option>
-        <option value="stressed">Stressed</option>
-      </select><br /><br />
-      <button onclick="submitReflection()">Submit Reflection</button>
-      <p id="submittedNote" style="display:none; color:#4b7bec; margin-top:10px;">
-        提交成功！完整的反思记录与成长图表请前往 <a href="growth.html">成长档案</a> 查看。
-      </p>
-    </section>
-  </main>
+  <h2>New Reflection</h2>
+  <textarea id="reflectionInput" placeholder="Write your reflection here..."></textarea>
+  <br />
+  <select id="emotionSelect">
+    <option value="" disabled selected>Select an emotion</option>
+    <option value="joy">Joy</option>
+    <option value="calm">Calm</option>
+    <option value="sad">Sad</option>
+    <option value="angry">Angry</option>
+    <option value="anxious">Anxious</option>
+  </select>
+  <br />
+  <button onclick="submitReflection()">Submit Reflection</button>
 
   <script src="task.js"></script>
 </body>
