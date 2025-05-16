@@ -2,10 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
   fetch('growth.json')
     .then(res => res.json())
     .then(data => {
-      // Positive Points
+      // Update positive points
       document.getElementById('positivePoints').textContent = data.positiveEmotionPoints;
 
-      // Task Completion Rate
+      // Task completion
       const rate = Math.round(100 * data.taskCompletion.completed / data.taskCompletion.total);
       document.getElementById('taskRate').textContent = rate + '%';
 
@@ -22,10 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
       new Chart(radarCtx, {
         type: 'radar',
         data: {
-          labels: Object.keys(data.characterStrengthRadar),
+          labels: Object.keys(data.characterStrengths),
           datasets: [{
             label: 'Character Strengths',
-            data: Object.values(data.characterStrengthRadar),
+            data: Object.values(data.characterStrengths),
             fill: true,
             backgroundColor: 'rgba(75,192,192,0.2)',
             borderColor: 'rgba(75,192,192,1)'
