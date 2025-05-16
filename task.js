@@ -1,23 +1,30 @@
-
 document.addEventListener('DOMContentLoaded', () => {
-  fetch('tasks.json')
-    .then(res => res.json())
-    .then(data => {
-      const taskList = document.getElementById('tasks');
-      data.forEach(task => {
-        const li = document.createElement('li');
-        li.textContent = `${task.title} (${task.category}) - ${task.status}`;
-        taskList.appendChild(li);
-      });
-    });
+  const historyEl = document.getElementById('reflectionHistory');
+  const reflections = JSON.parse(localStorage.getItem('reflections')) || [];
+
+  reflections.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = `[${item.date}] (${item.emotion}) ${item.text}`;
+    historyEl.appendChild(li);
+  });
 });
 
 function submitReflection() {
-  const text = document.getElementById('reflectionText').value;
+  const text = document.getElementById('reflectionInput').value.trim();
+  const emotion = document.getElementById('emotionSelect').value;
+
   if (!text) {
-    alert("Please enter your reflection.");
+    alert('Please enter your reflection.');
     return;
   }
-  alert("Reflection submitted! (Will be saved to localStorage or backend in the future.)");
-  document.getElementById('reflectionText').value = '';
+
+  const date = new Date().toISOString().split('T')[0];
+  const newEntry = { date, emotion, text };
+
+  const reflections = JSON.parse(localStorage.getItem('reflections')) || [];
+  reflections.push(newEntry);
+  localStorage.setItem('reflections', JSON.stringify(reflections));
+
+  alert('Reflection submitted!');
+  window.location.reload(); // reload to refresh the history list
 }
