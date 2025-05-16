@@ -81,3 +81,39 @@ document.getElementById("points").textContent = points;
     li.textContent = newText;
     list.insertBefore(li, list.firstChild); // 插入到最前
 }
+// 分析过去一周的反思数量
+const reflections = JSON.parse(localStorage.getItem("reflections")) || [];
+const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const today = new Date();
+const dayCounts = [0, 0, 0, 0, 0, 0, 0];
+
+// 模拟把每条反思分配给最近 7 天（此处先均匀假设）
+for (let i = 0; i < reflections.length; i++) {
+    const dayIndex = i % 7;
+    dayCounts[dayIndex]++;
+}
+
+// 绘制图表
+const ctx = document.getElementById('chart').getContext('2d');
+const chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: days,
+        datasets: [{
+            label: 'Reflections This Week',
+            data: dayCounts,
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.2
+        }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: {
+                beginAtZero: true,
+                precision: 0
+            }
+        }
+    }
+});
