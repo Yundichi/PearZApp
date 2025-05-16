@@ -1,3 +1,21 @@
+function detectEmotion(text) {
+  const emotions = {
+    joy: ["happy", "joy", "excited", "grateful"],
+    stress: ["tired", "stressed", "anxious", "overwhelmed"],
+    calm: ["peaceful", "calm", "relaxed", "mindful"],
+    sadness: ["sad", "down", "lonely", "discouraged"]
+  };
+
+  for (const [emotion, keywords] of Object.entries(emotions)) {
+    for (const word of keywords) {
+      if (text.toLowerCase().includes(word)) {
+        return emotion;
+      }
+    }
+  }
+  return "neutral";
+}
+
 function getCurrentWeekNumber() {
     const now = new Date();
     const oneJan = new Date(now.getFullYear(), 0, 1);
@@ -60,7 +78,12 @@ function addReflection() {
         alert("Please enter some reflection text.");
         return;
     }
+const emotion = detectEmotion(newText);
 
+let emotionData = JSON.parse(localStorage.getItem("emotionData")) || [];
+emotionData.push(emotion);
+localStorage.setItem("emotionData", JSON.stringify(emotionData));
+    
     let reflections = JSON.parse(localStorage.getItem("reflections")) || [];
     reflections.unshift(newText);  // 插入最前面
     localStorage.setItem("reflections", JSON.stringify(reflections));
