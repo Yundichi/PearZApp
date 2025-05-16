@@ -15,5 +15,27 @@
   
   <p>This page will list all mindfulness + strength tasks.</p>
   <p><a href="index.html">← Back to Home</a></p>
+
+<!-- 添加在 <body> 最后一行 </body> 前 -->
+<main>
+  <section id="task-list">
+    <h2>This Week's Tasks</h2>
+    <ul>
+      <li>Complete Reflection Journal (Mon)</li>
+      <li>Mindful Breathing Practice (Wed)</li>
+      <li>Help a Peer (Fri)</li>
+    </ul>
+  </section>
+
+  <section id="emotion-graph">
+    <h2>Weekly Emotion Trend</h2>
+    <canvas id="emotionChart" width="600" height="300"></canvas>
+  </section>
+</main>
+
+<!-- 引入 Chart.js 和你的任务图表逻辑 -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="tasks.js"></script>
+
 </body>
 </html>
