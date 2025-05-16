@@ -90,15 +90,15 @@ localStorage.setItem("emotionData", JSON.stringify(emotionData));
 
     // 清空输入框
     document.getElementById("new-reflection").value = "";
-
-  window.addReflection = addReflection;
   
 // 增加积分
 let points = parseInt(localStorage.getItem("growthPoints")) || 0;
 points += 1;
 localStorage.setItem("growthPoints", points);
 document.getElementById("points").textContent = points;
-    
+}
+// attact to windows
+window.addReflection = addReflection;
 
     // 更新页面上的反思列表
     const list = document.getElementById("reflection-list");
