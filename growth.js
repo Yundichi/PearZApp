@@ -154,6 +154,13 @@ function addReflection() {
     emotionData.push(emotion);
     localStorage.setItem("emotionData", JSON.stringify(emotionData));
 
+// === Update positiveEmotionPoints if emotion is positive ===
+const positiveEmotions = ["joy", "calm"];
+if (positiveEmotions.includes(emotion)) {
+  let positivePoints = parseInt(localStorage.getItem("positiveEmotionPoints")) || 0;
+  positivePoints += 1;
+  localStorage.setItem("positiveEmotionPoints", positivePoints);
+}
     let reflections = JSON.parse(localStorage.getItem("reflections")) || [];
     reflections.unshift(newText);
     localStorage.setItem("reflections", JSON.stringify(reflections));
