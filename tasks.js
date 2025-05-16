@@ -114,6 +114,7 @@ renderTasks(); // 初次加载渲染
     renderTasks();
   };
 
+
 const taskItems = document.querySelectorAll('#task-list li');
 taskItems.forEach(item => {
   item.addEventListener('click', () => {
@@ -122,6 +123,12 @@ taskItems.forEach(item => {
     localStorage.setItem('emotionData', JSON.stringify(emotionData));
     alert("Great job! You've earned a joy point!");
   });
+const taskItemsWithPoints = document.querySelectorAll("#task-list li");
+taskItemsWithPoints.forEach(item => {
+  item.addEventListener("click", () => {
+    // 记录 joy 并加积分逻辑
+  });
+});
 });
 
 });
