@@ -1,4 +1,4 @@
-// 假设你后面会用 localStorage 或 JSON 文件来保存数据
+
 document.addEventListener("DOMContentLoaded", function() {
     const summary = localStorage.getItem("growthSummary") || "You completed 3 tasks this week and submitted 2 reflections.";
     const reflections = JSON.parse(localStorage.getItem("reflections")) || [
