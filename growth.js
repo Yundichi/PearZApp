@@ -140,3 +140,40 @@ const chart = new Chart(ctx, {
         }
     }
 });
+const emotionData = JSON.parse(localStorage.getItem("emotionData")) || [];
+const emotionCounts = {
+  joy: 0, stress: 0, calm: 0, sadness: 0, neutral: 0
+};
+
+emotionData.forEach(e => {
+  if (emotionCounts[e] !== undefined) {
+    emotionCounts[e]++;
+  }
+});
+
+const emotionCtx = document.getElementById('emotionChart').getContext('2d');
+new Chart(emotionCtx, {
+  type: 'bar',
+  data: {
+    labels: Object.keys(emotionCounts),
+    datasets: [{
+      label: 'Emotion Frequency',
+      data: Object.values(emotionCounts),
+      backgroundColor: [
+        'rgba(255, 206, 86, 0.6)',
+        'rgba(255, 99, 132, 0.6)',
+        'rgba(54, 162, 235, 0.6)',
+        'rgba(153, 102, 255, 0.6)',
+        'rgba(201, 203, 207, 0.6)'
+      ]
+    }]
+  },
+  options: {
+    responsive: true,
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
