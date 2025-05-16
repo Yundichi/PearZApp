@@ -5,7 +5,10 @@ document.addEventListener("DOMContentLoaded", function() {
         "I learned to be more mindful during the group task.",
         "Today I handled stress better than before."
     ];
-
+const points = parseInt(localStorage.getItem("growthPoints")) || 0;
+document.getElementById("points").textContent = points;
+    
+    
     document.getElementById("summary-text").textContent = summary;
 
     const list = document.getElementById("reflection-list");
