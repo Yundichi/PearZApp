@@ -1,0 +1,14 @@
+[
+    {
+        "text": "Improve my math grade by reviewing daily",
+        "type": "Academic",
+        "date": "2025-05-15",
+        "completed": false
+    },
+    {
+        "text": "Talk to my classmate and rebuild our friendship",
+        "type": "Social",
+        "date": "2025-05-16",
+        "completed": false
+    }
+]
