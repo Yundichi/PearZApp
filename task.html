@@ -1,32 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>Task Reflection</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Task Reflection</h1>
-  <nav>
-    <a href="index.html">Home</a> |
-    <a href="task.html">Tasks</a> |
-    <a href="growth.html">Growth</a>
-  </nav>
+  <header>
+    <img src="PearZLogo.png" alt="PearZ Logo" class="logo" />
+    <h1>Task Reflection</h1>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="tasks.html">Tasks</a> |
+      <a href="growth.html">Growth</a> |
+      <a href="goal.html">Goals</a>
+    </nav>
+  </header>
 
-  <h2>New Reflection</h2>
-  <textarea id="reflectionInput" placeholder="Write your reflection here..."></textarea>
-  <br />
-  <select id="emotionSelect">
-    <option value="" disabled selected>Select an emotion</option>
-    <option value="joy">Joy</option>
-    <option value="calm">Calm</option>
-    <option value="sad">Sad</option>
-    <option value="angry">Angry</option>
-    <option value="anxious">Anxious</option>
-  </select>
-  <br />
-  <button onclick="submitReflection()">Submit Reflection</button>
+  <main>
+    <section class="reflection-form">
+      <h2>New Reflection</h2>
+      <textarea id="reflectionInput" placeholder="Write your reflection here..."></textarea><br />
+      <select id="emotionSelect">
+        <option value="">Select an emotion</option>
+        <option value="joy">Joy</option>
+        <option value="calm">Calm</option>
+        <option value="sad">Sad</option>
+        <option value="angry">Angry</option>
+        <option value="anxious">Anxious</option>
+      </select><br />
+      <button onclick="submitReflection()">Submit Reflection</button>
+      <p id="confirmationMessage" style="display:none; color: green;">
+        Submission successful! View your growth dashboard in the <a href="growth.html">Growth Report</a>.
+      </p>
+    </section>
+  </main>
 
-  <script src="task.js"></script>
+  <footer>
+    <p>PearZApp © 2025 | Designed by Yundi & AI Guangting</p>
+  </footer>
+
+  <script>
+    function submitReflection() {
+      const input = document.getElementById("reflectionInput").value.trim();
+      const emotion = document.getElementById("emotionSelect").value;
+      const date = new Date().toISOString().split("T")[0];
+
+      if (!input || !emotion) {
+        alert("Please enter your reflection and select an emotion.");
+        return;
+      }
+
+      const reflection = {
+        date,
+        emotion,
+        text: input
+      };
+
+      let reflections = JSON.parse(localStorage.getItem("reflections") || "[]");
+      reflections.push(reflection);
+      localStorage.setItem("reflections", JSON.stringify(reflections));
+
+      document.getElementById("reflectionInput").value = "";
+      document.getElementById("emotionSelect").value = "";
+      document.getElementById("confirmationMessage").style.display = "block";
+    }
+  </script>
 </body>
 </html>
