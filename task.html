@@ -6,25 +6,33 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Task Reflection</h1>
-    <nav>
-        <a href="task.html">Tasks</a> |
-        <a href="growth.html">Growth</a> |
-        <a href="goal.html">Goals</a>
-    </nav>
+    <header>
+        <h1>Task Reflection</h1>
+        <nav>
+            <a href="index.html">Home</a> |
+            <a href="growth.html">Growth</a> |
+            <a href="goal.html">Goals</a>
+        </nav>
+    </header>
 
-    <h2>New Reflection</h2>
-    <textarea id="reflectionText" placeholder="Write your reflection here..."></textarea><br>
-    <select id="emotionSelect">
-        <option value="">Select an emotion</option>
-        <option value="joy">Joy</option>
-        <option value="sad">Sad</option>
-        <option value="calm">Calm</option>
-        <option value="angry">Angry</option>
-    </select><br>
-    <button onclick="submitReflection()">Submit Reflection</button>
+    <main>
+        <section>
+            <h2>New Reflection</h2>
+            <textarea id="reflectionInput" placeholder="Write your reflection here..."></textarea>
+            <select id="emotionSelect">
+                <option value="">Select an emotion</option>
+                <option value="joy">Joy</option>
+                <option value="calm">Calm</option>
+                <option value="sad">Sad</option>
+                <option value="angry">Angry</option>
+            </select>
+            <button onclick="submitReflection()">Submit Reflection</button>
+        </section>
+    </main>
 
-    <footer>PearZApp © 2025 | Designed by Yundi & AI Guangting</footer>
+    <footer>
+        <p>PearZApp © 2025 | Designed by Yundi & AI Guangting</p>
+    </footer>
 
     <script src="task.js"></script>
 </body>
