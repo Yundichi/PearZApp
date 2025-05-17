@@ -39,3 +39,67 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 </script>
+// 添加退出按钮
+const logoutBtn = document.createElement("button");
+logoutBtn.innerText = "Logout";
+logoutBtn.className = "btn";
+logoutBtn.style.position = "absolute";
+logoutBtn.style.top = "10px";
+logoutBtn.style.left = "20px";
+logoutBtn.onclick = () => {
+  localStorage.removeItem("peerzUser");
+  window.location.href = "login.html";
+};
+document.body.appendChild(logoutBtn);
+
+// 添加打勾功能
+function addCheckFunctionality() {
+  const allTasks = document.querySelectorAll(".task");
+  allTasks.forEach(task => {
+    if (!task.classList.contains("checked")) {
+      const checkBtn = document.createElement("button");
+      checkBtn.innerText = "✓";
+      checkBtn.className = "btn";
+      checkBtn.style.marginLeft = "10px";
+      checkBtn.style.backgroundColor = "#33cc33";
+      checkBtn.style.fontSize = "0.8em";
+      checkBtn.onclick = () => {
+        task.classList.add("checked");
+        checkBtn.innerText = "✓ Done";
+        checkBtn.disabled = true;
+        // 可扩展积分逻辑
+        addGrowthPoints(10);
+      };
+      task.appendChild(checkBtn);
+    }
+  });
+}
+
+function addGrowthPoints(points) {
+  let current = parseInt(localStorage.getItem("growthPoints") || "0");
+  current += points;
+  localStorage.setItem("growthPoints", current.toString());
+  updatePointsDisplay(current);
+}
+
+function updatePointsDisplay(points) {
+  let scoreBoard = document.getElementById("score");
+  if (!scoreBoard) {
+    scoreBoard = document.createElement("div");
+    scoreBoard.id = "score";
+    scoreBoard.style.position = "absolute";
+    scoreBoard.style.top = "10px";
+    scoreBoard.style.right = "20px";
+    scoreBoard.style.color = "#ffffcc";
+    scoreBoard.style.fontWeight = "bold";
+    document.body.appendChild(scoreBoard);
+  }
+  scoreBoard.innerText = `Growth Points: ${points}`;
+}
+
+// 初始化成长积分
+const currentPoints = parseInt(localStorage.getItem("growthPoints") || "0");
+updatePointsDisplay(currentPoints);
+
+// 启动打勾功能延时等待渲染完毕后执行
+setTimeout(addCheckFunctionality, 1000);
