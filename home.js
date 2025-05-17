@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 });
-</script>
+
 // 添加退出按钮
 const logoutBtn = document.createElement("button");
 logoutBtn.innerText = "Logout";
@@ -103,3 +103,4 @@ updatePointsDisplay(currentPoints);
 
 // 启动打勾功能延时等待渲染完毕后执行
 setTimeout(addCheckFunctionality, 1000);
+</script>
