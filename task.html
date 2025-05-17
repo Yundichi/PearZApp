@@ -1,39 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Task Reflection</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>PearZ - Task Center</title>
+  <link rel="stylesheet" href="task.css" />
 </head>
 <body>
-    <header>
-        <h1>Task Reflection</h1>
-        <nav>
-            <a href="index.html">Home</a> |
-            <a href="growth.html">Growth</a> |
-            <a href="goal.html">Goals</a>
-        </nav>
-    </header>
+  <div class="background-stars"></div>
 
-    <main>
-        <section>
-            <h2>New Reflection</h2>
-            <textarea id="reflectionInput" placeholder="Write your reflection here..."></textarea>
-            <select id="emotionSelect">
-                <option value="">Select an emotion</option>
-                <option value="joy">Joy</option>
-                <option value="calm">Calm</option>
-                <option value="sad">Sad</option>
-                <option value="angry">Angry</option>
-            </select>
-            <button onclick="submitReflection()">Submit Reflection</button>
-        </section>
-    </main>
+  <div class="task-header">
+    <h1>Your Growth Task Center</h1>
+    <p>Track goals, practice strengths, and reflect mindfully</p>
+  </div>
 
-    <footer>
-        <p>PearZApp © 2025 | Designed by Yundi & AI Guangting</p>
-    </footer>
+  <div class="task-container">
+    <section class="task-card goal">
+      <h2>Today’s Goal</h2>
+      <p id="goal-text">Loading your personal goal...</p>
+      <button class="btn" onclick="setNewGoal()">Change Goal</button>
+    </section>
 
-    <script src="task.js"></script>
+    <section class="task-card practice">
+      <h2>Practice & Play</h2>
+      <ul id="practice-list">
+        <!-- Tasks will be injected -->
+      </ul>
+    </section>
+
+    <section class="task-card coach">
+      <h2>AI Coaching Prompt</h2>
+      <p>“What strength helped you handle a challenge today?”</p>
+      <textarea placeholder="Write your reflection here..."></textarea>
+      <button class="btn">Submit Reflection</button>
+    </section>
+  </div>
+
+  <script src="task.js"></script>
 </body>
 </html>
