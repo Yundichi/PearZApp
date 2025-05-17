@@ -1,40 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>PearZ - Task Center</title>
-  <link rel="stylesheet" href="task.css" />
+  <meta charset="UTF-8" />
+  <title>PearZ - Task Center</title>
+  <link rel="stylesheet" href="task.css" />
 </head>
 <body>
-  <div class="background-stars"></div>
+  <div class="background-stars"></div>
 
-  <div class="task-header">
-    <h1>Your Growth Task Center</h1>
-    <p>Track goals, practice strengths, and reflect mindfully</p>
-  </div>
+  <div class="task-header">
+    <h1>Your Growth Task Center</h1>
+    <p>Track goals, practice strengths, and reflect mindfully</p>
+  </div>
 
-  <div class="task-container">
-    <section class="task-card goal">
-      <h2>Today’s Goal</h2>
-      <p id="goal-text">Loading your personal goal...</p>
-      <button class="btn" onclick="setNewGoal()">Change Goal</button>
-    </section>
+  <div class="task-container">
+    <section class="task-card goal">
+      <h2>Today’s Goal</h2>
+      <p id="goal-text">Loading your personal goal...</p>
+      <button class="btn" onclick="setNewGoal()">Change Goal</button>
+    </section>
 
-    <section class="task-card practice">
-      <h2>Practice & Play</h2>
-      <ul id="practice-list">
-        <!-- Tasks will be injected -->
-      </ul>
-    </section>
+    <section class="task-card practice">
+      <h2>Practice & Play</h2>
+      <ul id="practice-list"></ul>
+    </section>
 
-    <section class="task-card coach">
-      <h2>AI Coaching Prompt</h2>
-      <p>“What strength helped you handle a challenge today?”</p>
-      <textarea placeholder="Write your reflection here..."></textarea>
-      <button class="btn">Submit Reflection</button>
-    </section>
-  </div>
+    <section class="task-card coach">
+      <h2>AI Coaching Prompt</h2>
+      <p>“What strength helped you handle a challenge today?”</p>
+      <textarea placeholder="Write your reflection here..."></textarea>
+      <button class="btn">Submit Reflection</button>
+    </section>
+  </div>
 
-  <script src="task.js"></script>
+  <script src="task.js"></script>
 </body>
 </html>
