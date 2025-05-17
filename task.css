@@ -1,40 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>PearZ - Task Center</title>
-  <link rel="stylesheet" href="task.css" />
-</head>
-<body>
-  <div class="background-stars"></div>
+/* task.css — Styled for PearZ Task Center */
 
-  <div class="task-header">
-    <h1>Your Growth Task Center</h1>
-    <p>Track goals, practice strengths, and reflect mindfully</p>
-  </div>
+body {
+  margin: 0;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  background: linear-gradient(to bottom, #000428, #004e92); /* 星空感蓝色渐变 */
+  color: white;
+}
 
-  <div class="task-container">
-    <section class="task-card goal">
-      <h2>Today’s Goal</h2>
-      <p id="goal-text">Loading your personal goal...</p>
-      <button class="btn" onclick="setNewGoal()">Change Goal</button>
-    </section>
+/* 页眉样式 */
+.task-header {
+  text-align: center;
+  padding: 2em 1em 1em;
+}
 
-    <section class="task-card practice">
-      <h2>Practice & Play</h2>
-      <ul id="practice-list">
-        <!-- Tasks will be injected -->
-      </ul>
-    </section>
+.task-header h1 {
+  font-size: 2em;
+  margin-bottom: 0.2em;
+}
 
-    <section class="task-card coach">
-      <h2>AI Coaching Prompt</h2>
-      <p>“What strength helped you handle a challenge today?”</p>
-      <textarea placeholder="Write your reflection here..."></textarea>
-      <button class="btn">Submit Reflection</button>
-    </section>
-  </div>
+.task-header p {
+  font-size: 1.1em;
+  color: #ccddff;
+}
 
-  <script src="task.js"></script>
-</body>
-</html>
+/* 主容器布局 */
+.task-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2em;
+  padding: 2em;
+}
+
+/* 卡片样式 */
+.task-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1.5em;
+  border-radius: 16px;
+  width: 300px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+}
+
+/* 卡片标题 */
+.task-card h2 {
+  margin-top: 0;
+  color: #ffcc66;
+}
+
+/* 文字与列表 */
+.task-card p,
+.task-card li,
+.task-card textarea {
+  font-size: 1em;
+  color: #ffffff;
+}
+
+.task-card textarea {
+  width: 100%;
+  padding: 0.6em;
+  border-radius: 10px;
+  border: none;
+  margin-top: 0.5em;
+  font-family: sans-serif;
+}
+
+/* 按钮样式 */
+.btn {
+  background-color: #ff6600;
+  border: none;
+  padding: 0.7em 1.6em;
+  font-size: 1em;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1em;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #ff8533;
+}
+
+ul {
+  padding-left: 1.2em;
+}
