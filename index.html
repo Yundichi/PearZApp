@@ -1,37 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>PearZ - Home</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>PearZ - Growth Home</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #001f3f, #003366);
+      color: white;
+      font-family: 'Arial Rounded MT Bold', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-around;
+      background-color: #112233;
+      padding: 1em 0;
+      font-size: 1.2em;
+    }
+    .hero {
+      text-align: center;
+      padding: 2em 1em;
+    }
+    .hero h1 {
+      margin-bottom: 0.2em;
+    }
+    .ai-selector {
+      text-align: center;
+      margin: 1em;
+    }
+    .ai-selector select {
+      font-size: 1em;
+      padding: 0.3em;
+      border-radius: 8px;
+    }
+    .daily-tasks, .gov-tasks {
+      background-color: #222244;
+      margin: 1em auto;
+      padding: 1.2em;
+      width: 80%;
+      border-radius: 12px;
+    }
+    .task {
+      margin: 0.5em 0;
+    }
+    .btn {
+      background-color: #ff6600;
+      border: none;
+      padding: 0.8em 2em;
+      font-size: 1em;
+      border-radius: 16px;
+      color: white;
+      cursor: pointer;
+      margin-top: 1em;
+    }
+    .login {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 0.9em;
+    }
+    .login a {
+      color: white;
+      margin-left: 1em;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-    <div class="background"></div>
-    <div class="container">
-        <header>
-            <h1>Welcome back, Yundi!</h1>
-            <p class="subtitle">Let Sun Wukong guide you on your journey today.</p>
-        </header>
+  <div class="login">
+    <a href="#">Login</a> | <a href="#">Register</a>
+  </div>
 
-        <section class="avatar">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Sun_Wukong_Illustration.png/300px-Sun_Wukong_Illustration.png" alt="Sun Wukong">
-        </section>
+  <div class="navbar">
+    <div>Home</div>
+    <div>Task</div>
+    <div>Growth</div>
+    <div>Mentor+</div>
+    <div>Bubble World</div>
+  </div>
 
-        <section class="tasks">
-            <h2>Today's Tasks</h2>
-            <div class="task-card">
-                <h3>Task 1 → Go 1</h3>
-                <p>Reflect on what brought you joy today.</p>
-            </div>
-            <div class="task-card">
-                <h3>Task 2 → Go 2</h3>
-                <p>Practice 3-minute breathing with calm music.</p>
-            </div>
-        </section>
-
-        <section class="bubble-world">
-            <button onclick="window.location.href='growth.html'">Enter Your Bubble World</button>
-        </section>
+  <div class="hero">
+    <h1>Welcome back, Yundi!</h1>
+    <p>Let’s grow together today.</p>
+    <div class="ai-selector">
+      <label for="avatar">Choose Your Personal AI: </label>
+      <select id="avatar" onchange="updateAvatar()">
+        <option value="wukong">Wukong</option>
+        <option value="fox">Fox</option>
+        <option value="cat">Cat</option>
+        <option value="owl">Owl</option>
+      </select>
+      <div id="ai-avatar" style="margin-top: 10px;">
+        <img src="avatar_wukong.png" alt="AI Avatar" width="120" />
+      </div>
     </div>
+  </div>
+
+  <div class="daily-tasks">
+    <h2>Daily Tasks</h2>
+    <div class="task">Today’s Strength: <strong>Curiosity</strong></div>
+    <div class="task">What brought you joy today?</div>
+    <div class="task">Go 1: Gratitude Practice + Mindful Breathing</div>
+    <button class="btn">Ask AI to Guide Me Today</button>
+  </div>
+
+  <div class="gov-tasks">
+    <h2>Gov Tasks</h2>
+    <div class="task">Gratitude Practice</div>
+    <div class="task">Mindful Breathing</div>
+    <button class="btn">Build Your PeerVerse</button>
+  </div>
+
+  <script>
+    function updateAvatar() {
+      const selected = document.getElementById("avatar").value;
+      const avatarImg = document.getElementById("ai-avatar").querySelector("img");
+      avatarImg.src = "avatar_" + selected + ".png";
+    }
+  </script>
 </body>
 </html>
