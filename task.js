@@ -1,24 +1,23 @@
-function submitReflection() {
-  const text = document.getElementById("reflectionText").value.trim();
-  const emotion = document.getElementById("emotionSelect").value;
-
-  if (!text || !emotion) {
-    alert("请填写反思内容并选择一个情绪。");
+document.addEventListener("DOMContentLoaded", () => {
+  const user = JSON.parse(localStorage.getItem("pearzUser"));
+  if (!user) {
+    window.location.href = "login.html";
     return;
   }
 
-  const today = new Date().toISOString().slice(0, 10); // yyyy-mm-dd
-  const newReflection = {
-    text: text,
-    emotion: emotion,
-    date: today
-  };
+  const goalText = document.getElementById("goal-text");
+  goalText.innerText = "Go 1: Practice Gratitude + Focus";
 
-  let reflections = JSON.parse(localStorage.getItem("reflections")) || [];
-  reflections.push(newReflection);
-  localStorage.setItem("reflections", JSON.stringify(reflections));
+  const practices = ["Deep Breathing", "Mindful Walking", "Emotion Matching"];
+  const list = document.getElementById("practice-list");
+  practices.forEach(item => {
+    const li = document.createElement("li");
+    li.innerText = "☐ " + item;
+    list.appendChild(li);
+  });
+});
 
-  document.getElementById("reflectionText").value = "";
-  document.getElementById("emotionSelect").value = "";
-  document.getElementById("submittedNote").style.display = "block";
+function setNewGoal() {
+  const goalText = document.getElementById("goal-text");
+  goalText.innerText = "Go 2: Help someone today with kindness.";
 }
