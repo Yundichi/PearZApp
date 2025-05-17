@@ -6,29 +6,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>PeerZApp | Goal Activation</h1>
     <nav>
-        <h1>PeerZApp | Goal Activation</h1>
-        <a href="index.html">Back to Home</a>
+        <a href="task.html">Tasks</a> |
+        <a href="growth.html">Growth</a> |
+        <a href="goal.html">Goals</a>
     </nav>
 
-    <section class="goal-section">
-        <h2>What's your goal this week?</h2>
-        <input type="text" id="goalInput" placeholder="Enter your goal (e.g. Improve my math score)">
-        <button onclick="addGoal()">Submit Goal</button>
-    </section>
+    <h2>What's your goal this week?</h2>
+    <input type="text" id="goalInput" placeholder="Enter your goal (e.g. Improve focus)">
+    <button onclick="submitGoal()">Submit Goal</button>
 
-    <section class="avatar-section">
-        <h3>Your Personal Guide:</h3>
-        <div id="avatar">
-            <img src="https://cdn-icons-png.flaticon.com/512/4712/4712107.png" alt="Avatar" width="80">
-            <p id="avatarMessage">Hi! I’m your coach. Let’s build your future together!</p>
-        </div>
-    </section>
+    <h3>Your Personal Guide:</h3>
+    <p><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" width="50"><br>
+    Hi! I’m your coach. Let’s build your future together!</p>
 
-    <section class="goal-history">
-        <h3>Goal Tracker</h3>
-        <ul id="goalList"></ul>
-    </section>
+    <footer>PearZApp © 2025 | Designed by Yundi & AI Guangting</footer>
 
     <script src="goal.js"></script>
 </body>
