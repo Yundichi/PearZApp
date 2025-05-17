@@ -97,6 +97,16 @@ function updatePointsDisplay(points) {
   scoreBoard.innerText = `Growth Points: ${points}`;
 }
 
+function updateAvatar() {
+  const avatar = document.getElementById("avatar").value;
+  const avatarImg = document.getElementById("ai-avatar").querySelector("img");
+  avatarImg.src = `avatar_${avatar}.png`;
+
+  // 正确使用 PearZ 用户命名
+  let user = JSON.parse(localStorage.getItem("pearzUser"));
+  user.avatar = avatar;
+  localStorage.setItem("pearzUser", JSON.stringify(user));
+}
 // 初始化成长积分
 const currentPoints = parseInt(localStorage.getItem("growthPoints") || "0");
 updatePointsDisplay(currentPoints);
