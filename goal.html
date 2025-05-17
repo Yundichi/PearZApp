@@ -1,28 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Goal Activation</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>PeerZApp | Goal Activation</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>PeerZApp | Goal Activation</h1>
-    <nav>
-        <a href="task.html">Tasks</a> |
-        <a href="growth.html">Growth</a> |
-        <a href="goal.html">Goals</a>
-    </nav>
+    <header>
+        <h1>PeerZApp | Goal Activation</h1>
+        <nav>
+            <a href="index.html">Home</a> |
+            <a href="tasks.html">Tasks</a> |
+            <a href="growth.html">Growth</a>
+        </nav>
+    </header>
 
-    <h2>What's your goal this week?</h2>
-    <input type="text" id="goalInput" placeholder="Enter your goal (e.g. Improve focus)">
-    <button onclick="submitGoal()">Submit Goal</button>
+    <main>
+        <section>
+            <h2>What's your goal this week?</h2>
+            <input type="text" id="goalInput" placeholder="Enter your goal (e.g. Improve focus)">
+            <button onclick="submitGoal()">Submit Goal</button>
+            <h3>Your Personal Guide:</h3>
+            <img src="avatar.png" alt="AI Coach" width="60">
+            <p>Hi! I'm your coach. Let’s build your future together!</p>
+        </section>
+        <section>
+            <h3>Submitted Goal:</h3>
+            <p id="goalDisplay">No goal submitted yet.</p>
+        </section>
+    </main>
 
-    <h3>Your Personal Guide:</h3>
-    <p><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" width="50"><br>
-    Hi! I’m your coach. Let’s build your future together!</p>
+    <footer>
+        <p>PearZApp © 2025 | Designed by Yundi & AI Guangting</p>
+    </footer>
 
-    <footer>PearZApp © 2025 | Designed by Yundi & AI Guangting</footer>
+    <script>
+        function submitGoal() {
+            const goal = document.getElementById("goalInput").value;
+            localStorage.setItem("currentGoal", goal);
+            document.getElementById("goalDisplay").innerText = goal;
+        }
 
-    <script src="goal.js"></script>
+        window.onload = function () {
+            const savedGoal = localStorage.getItem("currentGoal");
+            if (savedGoal) {
+                document.getElementById("goalDisplay").innerText = savedGoal;
+            }
+        };
+    </script>
 </body>
 </html>
