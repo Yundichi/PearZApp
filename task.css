@@ -1,27 +1,17 @@
-/* task.css */
-
+/* task.css - PearZ Task Page Styling */
 body {
   margin: 0;
-  font-family: "Arial Rounded MT Bold", sans-serif;
+  padding: 0;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  background: linear-gradient(to bottom, #001f3f, #003366);
   color: white;
-  background: linear-gradient(to bottom, #001f3f, #001a33);
-  background-attachment: fixed;
-  min-height: 100vh;
 }
 
 .task-header {
   text-align: center;
-  padding: 2em 1em 1em;
-}
-
-.task-header h1 {
-  font-size: 2.2em;
-  margin-bottom: 0.3em;
-}
-
-.task-header p {
-  font-size: 1em;
-  color: #d0e5ff;
+  padding: 2em 1em;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid #334;
 }
 
 .task-container {
@@ -33,65 +23,49 @@ body {
 }
 
 .task-card {
-  background-color: #112244;
+  background-color: #223355;
   border-radius: 16px;
-  box-shadow: 0 0 12px #334;
+  box-shadow: 0 0 12px #00000077;
   padding: 1.5em;
   width: 300px;
-  min-height: 200px;
 }
 
 .task-card h2 {
-  color: #ffcc66;
+  margin-top: 0;
   font-size: 1.4em;
-  margin-bottom: 0.5em;
+  color: #ffee99;
 }
 
-.task-card p, .task-card textarea {
+.task-card p, .task-card li {
   font-size: 1em;
-  line-height: 1.4em;
-  margin-bottom: 1em;
-  color: #ffffff;
-}
-
-.task-card ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.task-card li {
   margin: 0.5em 0;
-  padding: 0.4em 0.6em;
-  background-color: #223355;
-  border-radius: 10px;
-  transition: 0.3s;
 }
 
-.task-card li:hover {
-  background-color: #445577;
+ul {
+  padding-left: 1.2em;
 }
 
 textarea {
   width: 100%;
-  height: 80px;
-  border-radius: 10px;
-  border: none;
   padding: 0.8em;
+  border-radius: 8px;
+  border: none;
+  font-family: sans-serif;
   resize: vertical;
-  font-family: inherit;
 }
 
 .btn {
-  background-color: #ff6600;
+  background-color: #ffaa33;
+  color: #000;
   border: none;
-  padding: 0.6em 1.4em;
-  font-size: 1em;
-  color: white;
+  padding: 0.6em 1.2em;
+  margin-top: 1em;
+  font-weight: bold;
   border-radius: 12px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: background-color 0.3s;
 }
 
 .btn:hover {
-  background-color: #ff8533;
+  background-color: #ffcc66;
 }
