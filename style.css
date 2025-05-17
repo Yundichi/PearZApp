@@ -1,69 +1,106 @@
+/* style.css */
+
 body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    color: white;
-    overflow-x: hidden;
-    background: linear-gradient(to bottom, #0d1b2a, #1b263b);
+  background: linear-gradient(to bottom, #001f3f, #003366);
+  color: white;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-.background {
-    background: url('https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
-    background-size: cover;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    z-index: -1;
-    opacity: 0.4;
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  background-color: #112233;
+  padding: 1em 0;
+  font-size: 1.2em;
+  border-bottom: 1px solid #446;
 }
 
-.container {
-    padding: 30px;
-    text-align: center;
+.navbar div {
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-header h1 {
-    font-size: 2.5em;
+.navbar div:hover {
+  color: #ffcc66;
 }
 
-.subtitle {
-    font-size: 1.2em;
-    margin-top: -10px;
+.login {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 0.9em;
 }
 
-.avatar img {
-    width: 160px;
-    border-radius: 50%;
-    margin: 20px 0;
-    border: 4px solid white;
+.login a {
+  color: white;
+  margin-left: 1em;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.tasks {
-    margin-top: 30px;
+.hero {
+  text-align: center;
+  padding: 2.5em 1em;
 }
 
-.task-card {
-    background: rgba(255, 255, 255, 0.15);
-    padding: 15px;
-    margin: 15px auto;
-    width: 80%;
-    border-radius: 12px;
-    backdrop-filter: blur(5px);
+.hero h1 {
+  margin-bottom: 0.2em;
+  font-size: 2em;
 }
 
-.bubble-world button {
-    margin-top: 40px;
-    padding: 12px 24px;
-    background-color: #fca311;
-    border: none;
-    border-radius: 8px;
-    font-size: 1em;
-    color: #000;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.hero p {
+  font-size: 1.1em;
+  color: #d0e5ff;
 }
 
-.bubble-world button:hover {
-    background-color: #ffb703;
+.ai-selector {
+  margin: 1.5em auto;
+  text-align: center;
+}
+
+.ai-selector select {
+  font-size: 1em;
+  padding: 0.4em;
+  border-radius: 10px;
+  border: none;
+  color: #333;
+}
+
+.ai-selector img {
+  margin-top: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ffaa33;
+}
+
+.daily-tasks, .gov-tasks {
+  background-color: #222244;
+  margin: 1em auto;
+  padding: 1.2em;
+  width: 80%;
+  border-radius: 16px;
+  box-shadow: 0 0 10px #334;
+}
+
+.task {
+  margin: 0.6em 0;
+  font-size: 1em;
+}
+
+.btn {
+  background-color: #ff6600;
+  border: none;
+  padding: 0.8em 2em;
+  font-size: 1em;
+  border-radius: 16px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1em;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #ff8533;
 }
