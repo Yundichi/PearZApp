@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "name": "Yundi",
+      "avatar": "wukong",
+      "strength": "Curiosity",
+      "dailyTasks": ["Gratitude Practice", "Mindful Breathing"],
+      "govTasks": ["Write a Reflection", "Meditate for 3 Minutes"]
+    },
+    {
+      "name": "Jeppard",
+      "avatar": "raccoon",
+      "strength": "Bravery",
+      "dailyTasks": ["Bravery Quest", "Silence Practice"],
+      "govTasks": ["Lead a Group Meditation", "Help a Peer"]
+    }
+  ]
+}
