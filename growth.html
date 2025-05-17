@@ -1,42 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Growth Dashboard</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta charset="UTF-8">
+    <title>Growth Report</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
     <h1>Growth Report</h1>
     <nav>
-      <a href="index.html">Home</a> |
-      <a href="task.html">Tasks</a> |
-      <a href="growth.html">Growth</a>
+        <a href="task.html">Tasks</a> |
+        <a href="growth.html">Growth</a> |
+        <a href="goal.html">Goals</a>
     </nav>
-  </header>
 
-  <main>
-    <section>
-      <h2>Weekly Positive Emotion Points: <span id="positivePoints">0</span></h2>
-    </section>
+    <h2>Weekly Positive Emotion Points: <span id="positivePoints">0</span></h2>
+    <canvas id="emotionChart" width="400" height="250"></canvas>
+    <canvas id="radarChart" width="400" height="250"></canvas>
 
-    <section>
-      <h2>Emotion Frequency Chart</h2>
-      <canvas id="emotionChart" width="400" height="200"></canvas>
-    </section>
+    <h2>Reflection History</h2>
+    <ul id="reflectionHistory"></ul>
 
-    <section>
-      <h2>Character Strengths Overview</h2>
-      <canvas id="strengthChart" width="400" height="400"></canvas>
-    </section>
+    <footer>PearZApp © 2025 | Designed by Yundi & AI Guangting</footer>
 
-    <section>
-      <h2>Reflection History</h2>
-      <ul id="growthHistory"></ul>
-    </section>
-  </main>
-
-  <script src="growth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="growth.js"></script>
 </body>
 </html>
