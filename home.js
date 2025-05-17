@@ -1,95 +1,54 @@
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const user = JSON.parse(localStorage.getItem("pearzUser")); // 修改这一句
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PearZ - Growth Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="login">
+    <a href="login.html">Login</a> | <a href="login.html">Register</a>
+  </div>
 
-  if (!user) {
-    window.location.href = "login.html";
-    return;
-  }
+  <div class="navbar">
+    <div>Home</div>
+    <div>Task</div>
+    <div>Growth</div>
+    <div>Mentor+</div>
+    <div>Bubble World</div>
+  </div>
 
-  // 显示欢迎语
-  document.querySelector(".hero h1").innerText = `Welcome back, ${user.name}!`;
+  <div class="hero">
+    <h1></h1>
+    <p>Let’s grow together today.</p>
 
-  // 显示头像
-  const avatarImg = document.getElementById("ai-avatar").querySelector("img");
-  avatarImg.src = `avatar_${user.avatar}.png`;
+    <div class="ai-selector">
+      <label for="avatar">Choose Your Personal AI: </label>
+      <select id="avatar" onchange="updateAvatar()">
+        <option value="wukong">Wukong</option>
+        <option value="fox">Fox</option>
+        <option value="cat">Cat</option>
+        <option value="raccoon">Raccoon</option>
+        <option value="lami">Lami</option>
+      </select>
+      <div id="ai-avatar" style="margin-top: 10px;">
+        <img src="avatar_wukong.png" alt="AI Avatar" width="120" />
+      </div>
+    </div>
+  </div>
 
-  // 加载任务数据 ...
-});
-});
+  <div class="daily-tasks">
+    <h2>Daily Tasks</h2>
+    <!-- 动态注入任务 -->
+    <button class="btn">Ask AI to Guide Me Today</button>
+  </div>
 
-// 添加退出按钮
-const logoutBtn = document.createElement("button");
-logoutBtn.innerText = "Logout";
-logoutBtn.className = "btn";
-logoutBtn.style.position = "absolute";
-logoutBtn.style.top = "10px";
-logoutBtn.style.left = "20px";
-logoutBtn.onclick = () => {
-  localStorage.removeItem("peerzUser");
-  window.location.href = "login.html";
-};
-document.body.appendChild(logoutBtn);
+  <div class="gov-tasks">
+    <h2>Gov Tasks</h2>
+    <!-- 动态注入任务 -->
+    <button class="btn">Build Your PeerVerse</button>
+  </div>
 
-// 添加打勾功能
-function addCheckFunctionality() {
-  const allTasks = document.querySelectorAll(".task");
-  allTasks.forEach(task => {
-    if (!task.classList.contains("checked")) {
-      const checkBtn = document.createElement("button");
-      checkBtn.innerText = "✓";
-      checkBtn.className = "btn";
-      checkBtn.style.marginLeft = "10px";
-      checkBtn.style.backgroundColor = "#33cc33";
-      checkBtn.style.fontSize = "0.8em";
-      checkBtn.onclick = () => {
-        task.classList.add("checked");
-        checkBtn.innerText = "✓ Done";
-        checkBtn.disabled = true;
-        // 可扩展积分逻辑
-        addGrowthPoints(10);
-      };
-      task.appendChild(checkBtn);
-    }
-  });
-}
-
-function addGrowthPoints(points) {
-  let current = parseInt(localStorage.getItem("growthPoints") || "0");
-  current += points;
-  localStorage.setItem("growthPoints", current.toString());
-  updatePointsDisplay(current);
-}
-
-function updatePointsDisplay(points) {
-  let scoreBoard = document.getElementById("score");
-  if (!scoreBoard) {
-    scoreBoard = document.createElement("div");
-    scoreBoard.id = "score";
-    scoreBoard.style.position = "absolute";
-    scoreBoard.style.top = "10px";
-    scoreBoard.style.right = "20px";
-    scoreBoard.style.color = "#ffffcc";
-    scoreBoard.style.fontWeight = "bold";
-    document.body.appendChild(scoreBoard);
-  }
-  scoreBoard.innerText = `Growth Points: ${points}`;
-}
-
-function updateAvatar() {
-  const avatar = document.getElementById("avatar").value;
-  const avatarImg = document.getElementById("ai-avatar").querySelector("img");
-  avatarImg.src = `avatar_${avatar}.png`;
-
-  // 正确使用 PearZ 用户命名
-  let user = JSON.parse(localStorage.getItem("pearzUser"));
-  user.avatar = avatar;
-  localStorage.setItem("pearzUser", JSON.stringify(user));
-}
-// 初始化成长积分
-const currentPoints = parseInt(localStorage.getItem("growthPoints") || "0");
-updatePointsDisplay(currentPoints);
-
-// 启动打勾功能延时等待渲染完毕后执行
-setTimeout(addCheckFunctionality, 1000);
-</script>
+  <script src="home.js"></script>
+</body>
+</html>
