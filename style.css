@@ -1,60 +1,69 @@
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    text-align: center;
-    background-color: #f9f9f9;
-}
-
-header {
-    padding: 20px;
-    background-color: #ffffff;
-}
-
-nav a {
-    margin: 0 12px;
-    text-decoration: none;
-    color: #003399;
-    font-weight: bold;
-}
-
-h1, h2 {
-    color: #222;
-}
-
-textarea, input[type="text"] {
-    width: 60%;
-    padding: 10px;
-    margin-top: 10px;
-    font-size: 1em;
-}
-
-button {
-    margin-top: 12px;
-    padding: 10px 20px;
-    font-size: 1em;
-    cursor: pointer;
-    background-color: #3366ff;
+    font-family: 'Arial', sans-serif;
     color: white;
-    border: none;
-    border-radius: 4px;
+    overflow-x: hidden;
+    background: linear-gradient(to bottom, #0d1b2a, #1b263b);
 }
 
-canvas {
-    margin: 20px auto;
-    display: block;
-    max-width: 90%;
+.background {
+    background: url('https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+    opacity: 0.4;
 }
 
-footer {
+.container {
+    padding: 30px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    margin-top: -10px;
+}
+
+.avatar img {
+    width: 160px;
+    border-radius: 50%;
+    margin: 20px 0;
+    border: 4px solid white;
+}
+
+.tasks {
+    margin-top: 30px;
+}
+
+.task-card {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 15px;
+    margin: 15px auto;
+    width: 80%;
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+}
+
+.bubble-world button {
     margin-top: 40px;
-    padding: 10px;
-    background-color: #efefef;
-    font-size: 0.9em;
-    color: #555;
+    padding: 12px 24px;
+    background-color: #fca311;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    color: #000;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
+.bubble-world button:hover {
+    background-color: #ffb703;
 }
