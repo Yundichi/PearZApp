@@ -11,17 +11,20 @@ body {
   justify-content: space-around;
   background-color: #112233;
   padding: 1em 0;
-  font-size: 1.2em;
+  font-size: 1.1em;
   border-bottom: 1px solid #446;
 }
 
-.navbar div {
-  cursor: pointer;
+.navbar div a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5em 1em;
   transition: 0.3s;
 }
 
-.navbar div:hover {
-  color: #ffcc66;
+.navbar div a:hover {
+  background-color: #334455;
+  border-radius: 10px;
 }
 
 .login {
@@ -40,7 +43,7 @@ body {
 
 .hero {
   text-align: center;
-  padding: 2.5em 1em;
+  padding: 3em 1em;
 }
 
 .hero h1 {
@@ -70,35 +73,4 @@ body {
   margin-top: 10px;
   border-radius: 50%;
   box-shadow: 0 0 10px #ffaa33;
-}
-
-.daily-tasks, .gov-tasks {
-  background-color: #222244;
-  margin: 1em auto;
-  padding: 1.2em;
-  width: 80%;
-  border-radius: 16px;
-  box-shadow: 0 0 10px #334;
-}
-
-.task {
-  margin: 0.6em 0;
-  font-size: 1em;
-}
-
-.btn {
-  background-color: #ff6600;
-  border: none;
-  padding: 0.8em 2em;
-  font-size: 1em;
-  border-radius: 16px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 1em;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background-color: #ff8533;
 }
