@@ -6,40 +6,39 @@
   <link rel="stylesheet" href="task.css" />
 </head>
 <body>
-  <div class="stars-background"></div>
-
   <div class="task-header">
     <h1>Your Growth Task Center</h1>
     <p>Track goals, practice strengths, and reflect mindfully</p>
   </div>
 
   <div class="task-container">
-    <section class="task-card">
+    <section class="task-card goal">
       <h2>Today’s Goal</h2>
       <p id="goal-text">Go 1: Practice Gratitude + Focus</p>
-      <button onclick="setNewGoal()">Change Goal</button>
+      <button class="btn" onclick="setNewGoal()">Change Goal</button>
     </section>
 
-    <section class="task-card">
+    <section class="task-card practice">
       <h2>Practice & Play</h2>
       <ul id="practice-list">
-        <li>☐ Deep Breathing</li>
-        <li>☐ Mindful Walking</li>
-        <li>☐ Emotion Matching</li>
+        <li><input type="checkbox" /> Deep Breathing</li>
+        <li><input type="checkbox" /> Mindful Walking</li>
+        <li><input type="checkbox" /> Emotion Matching</li>
       </ul>
     </section>
 
-    <section class="task-card">
+    <section class="task-card coach">
       <h2>AI Coaching Prompt</h2>
       <p>“What strength helped you handle a challenge today?”</p>
       <textarea placeholder="Write your reflection here..."></textarea>
-      <button>Submit Reflection</button>
+      <button class="btn">Submit Reflection</button>
     </section>
   </div>
 
   <script>
     function setNewGoal() {
-      document.getElementById("goal-text").innerText = "Go 2: Help someone today with kindness.";
+      const goalText = document.getElementById("goal-text");
+      goalText.innerText = "Go 2: Help someone today with kindness.";
     }
   </script>
 </body>
