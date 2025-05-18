@@ -8,23 +8,22 @@ body {
 
 .navbar {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   background-color: #112233;
   padding: 1em 0;
-  font-size: 1.1em;
+  font-size: 1.2em;
   border-bottom: 1px solid #446;
+  gap: 2em;
 }
 
-.navbar div a {
+.navbar a {
   color: white;
   text-decoration: none;
-  padding: 0.5em 1em;
   transition: 0.3s;
 }
 
-.navbar div a:hover {
-  background-color: #334455;
-  border-radius: 10px;
+.navbar a:hover {
+  color: #ffcc66;
 }
 
 .login {
@@ -43,12 +42,12 @@ body {
 
 .hero {
   text-align: center;
-  padding: 3em 1em;
+  padding: 2.5em 1em;
 }
 
 .hero h1 {
-  margin-bottom: 0.2em;
   font-size: 2em;
+  margin-bottom: 0.3em;
 }
 
 .hero p {
