@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>PearZ - Welcome</title>
+  <title>PearZ - Growth Home</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,11 +11,11 @@
   </div>
 
   <div class="navbar">
-    <a href="index.html">Home</a>
-    <a href="task.html">Task</a>
-    <a href="#">Growth</a>
-    <a href="#">Mentor+</a>
-    <a href="#">Bubble World</a>
+    <div><a href="index.html">Goal</a></div>
+    <div><a href="task.html">Task</a></div>
+    <div><a href="#">Growth</a></div>
+    <div><a href="#">Mentor+</a></div>
+    <div><a href="#">Bubble World</a></div>
   </div>
 
   <div class="hero">
@@ -37,11 +37,52 @@
     </div>
   </div>
 
+  <div class="module-section">
+    <div class="module-card">
+      <h3>MBSP Goal Engine</h3>
+      <p>Set daily growth goals with mindfulness & strengths practice.</p>
+      <a class="btn" href="task.html">Start Your Goal</a>
+    </div>
+
+    <div class="module-card">
+      <h3>Personal AI Coach</h3>
+      <p>Talk to your AI avatar for daily guidance and reflection.</p>
+      <a class="btn" href="#">Meet Your AI</a>
+    </div>
+
+    <div class="module-card">
+      <h3>Growth Tracker</h3>
+      <p>View your progress, points, and patterns over time.</p>
+      <a class="btn" href="#">Track Growth</a>
+    </div>
+
+    <div class="module-card">
+      <h3>Mentor+</h3>
+      <p>Get support from real mentors and peers around the world.</p>
+      <a class="btn" href="#">Connect</a>
+    </div>
+
+    <div class="module-card">
+      <h3>Bubble World</h3>
+      <p>Create your own universe with points earned.</p>
+      <a class="btn" href="#">Build</a>
+    </div>
+
+    <div class="module-card">
+      <h3>Certificate & Reflection</h3>
+      <p>Unlock certificates and write personal reflections.</p>
+      <a class="btn" href="#">View</a>
+    </div>
+  </div>
+
   <script>
     function updateAvatar() {
       const avatar = document.getElementById("avatar").value;
       const avatarImg = document.getElementById("ai-avatar").querySelector("img");
       avatarImg.src = `avatar_${avatar}.png`;
+      let user = JSON.parse(localStorage.getItem("pearzUser"));
+      user.avatar = avatar;
+      localStorage.setItem("pearzUser", JSON.stringify(user));
     }
   </script>
 </body>
