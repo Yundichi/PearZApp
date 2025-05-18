@@ -11,15 +11,15 @@
   </div>
 
   <div class="navbar">
-    <div>Home</div>
-    <div>Task</div>
-    <div>Growth</div>
-    <div>Mentor+</div>
-    <div>Bubble World</div>
+    <div><a href="index.html">Home</a></div>
+    <div><a href="task.html">Task</a></div>
+    <div><a href="#">Growth</a></div>
+    <div><a href="#">Mentor+</a></div>
+    <div><a href="#">Bubble World</a></div>
   </div>
 
   <div class="hero">
-    <h1></h1>
+    <h1>Welcome back, Yundi!</h1>
     <p>Let’s grow together today.</p>
 
     <div class="ai-selector">
@@ -37,18 +37,12 @@
     </div>
   </div>
 
-  <div class="daily-tasks">
-    <h2>Daily Tasks</h2>
-    <!-- 任务将动态注入 -->
-    <button class="btn">Ask AI to Guide Me Today</button>
-  </div>
-
-  <div class="gov-tasks">
-    <h2>Gov Tasks</h2>
-    <!-- 任务将动态注入 -->
-    <button class="btn">Build Your PeerVerse</button>
-  </div>
-
-  <script src="home.js"></script>
+  <script>
+    function updateAvatar() {
+      const avatar = document.getElementById("avatar").value;
+      const avatarImg = document.getElementById("ai-avatar").querySelector("img");
+      avatarImg.src = `avatar_${avatar}.png`;
+    }
+  </script>
 </body>
 </html>
